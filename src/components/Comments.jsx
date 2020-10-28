@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import CommentForm from './CommentForm'
 
 const Comments =(props) =>{
     const {post_id} = useParams()
@@ -11,16 +12,16 @@ const Comments =(props) =>{
             const comments = await response.json()
             getComments(comments)
     };getInfo();},[getComments, post_id]);
-    console.log(comments)
     return (
         <div>
-            <p>Stuff</p>
+            <p>Comments</p>
             <ul style={{listStyle:'none'}}>
                 {comments.map((comment, index)=>{
                     return <li key={index}>{comment.comment}</li>
                 }
                 )}
             </ul>
+            <CommentForm updateComments={getComments}/>
         </div>
     )
 }

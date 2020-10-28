@@ -12,13 +12,8 @@ const PostPage = (props)=>{
             const post = await response.json()
             getPost(post)
     };getInfo();},[getPost, post_id]);
-    console.log(post)
     return (
         <>
-            <div>
-                <p></p>
-                <p></p>
-            </div>
             <div>
                 <h1>Post</h1>
                 <h1>{post.user_id}</h1>

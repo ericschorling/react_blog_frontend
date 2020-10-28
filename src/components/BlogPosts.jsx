@@ -12,10 +12,8 @@ export default class BlogPosts extends React.Component {
     }
 
     async componentDidMount () {
-        console.log('clicked')
         const response = await fetch('http://127.0.0.1:3333')
         const blogs = await response.json()
-        console.log(blogs)
         this.setState({
             posts: blogs
         })
@@ -37,7 +35,6 @@ export default class BlogPosts extends React.Component {
                 </Route>
                 <Route path="/post/:post_id">
                     <PostPage />
-                    <CommentForm />
                 </Route>
             </>
         )
